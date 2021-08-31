@@ -66,7 +66,8 @@ export const ENDPOINTS = [
   },
 ];
 
-const DEFAULT = ENDPOINTS[0].endpoint;
+const DEFAULT_NETWORK = process.env.METAPLEX_CHAIN_NETWORK?parseInt(process.env.METAPLEX_CHAIN_NETWORK):0;
+const DEFAULT_ENDPOINT = ENDPOINTS[DEFAULT_NETWORK];
 
 interface ConnectionConfig {
   connection: Connection;
@@ -78,10 +79,10 @@ interface ConnectionConfig {
 }
 
 const ConnectionContext = React.createContext<ConnectionConfig>({
-  endpoint: DEFAULT,
+  endpoint: DEFAULT_ENDPOINT.endpoint,
   setEndpoint: () => {},
-  connection: new Connection(DEFAULT, 'recent'),
-  env: ENDPOINTS[0].name,
+  connection: new Connection(DEFAULT_ENDPOINT.endpoint, 'recent'),
+  env: DEFAULT_ENDPOINT.name,
   tokens: [],
   tokenMap: new Map<string, TokenInfo>(),
 });
@@ -89,7 +90,7 @@ const ConnectionContext = React.createContext<ConnectionConfig>({
 export function ConnectionProvider({ children = undefined as any }) {
   const [endpoint, setEndpoint] = useLocalStorageState(
     'connectionEndpoint',
-    ENDPOINTS[0].endpoint,
+    DEFAULT_ENDPOINT.endpoint,
   );
 
   const connection = useMemo(
@@ -98,7 +99,7 @@ export function ConnectionProvider({ children = undefined as any }) {
   );
 
   const env =
-    ENDPOINTS.find(end => end.endpoint === endpoint)?.name || ENDPOINTS[0].name;
+    ENDPOINTS.find(end => end.endpoint === endpoint)?.name || DEFAULT_ENDPOINT.name;
 
   const [tokens, setTokens] = useState<TokenInfo[]>([]);
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
