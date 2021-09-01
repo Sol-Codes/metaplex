@@ -77,23 +77,22 @@ export const ArtView = () => {
       <Col>
         <Row ref={ref}>
           <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px' }}>
-            <ArtContent
-              style={{ width: 300 }}
-              height={300}
-              width={300}
-              className="artwork-image"
-              pubkey={id}
-              active={true}
-              allowMeshRender={true}
-            />
+            <div className="artwork-image-container">
+              <ArtContent
+                style={{ width: 300 }}
+                height={300}
+                width={300}
+                className="artwork-image"
+                pubkey={id}
+                active={true}
+                allowMeshRender={true}
+              />
+            </div>
             { data?.properties?.category === 'html' ? 
               <>
-                <Button type="primary" onClick={showModal}>Preview</Button>
+                <Button style={{marginTop: '20px', float:'right', zIndex: 1}} type="primary" onClick={showModal}>Preview</Button>
                 <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
                   <ArtContent
-                    style={{ width: 300 }}
-                    height={300}
-                    width={300}
                     pubkey={id}
                     active={true}
                     allowMeshRender={true}
