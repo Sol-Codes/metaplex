@@ -71,7 +71,7 @@ export const ArtView = () => {
       <br />
     </>
   );
-
+// console.log('data:', data)
   return (
     <Content>
       <Col>
@@ -86,18 +86,22 @@ export const ArtView = () => {
               active={true}
               allowMeshRender={true}
             />
-            <Button type="primary" onClick={showModal}>Preview</Button>
-            <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
-              <ArtContent
-                style={{ width: 300 }}
-                height={300}
-                width={300}
-                pubkey={id}
-                active={true}
-                allowMeshRender={true}
-                className="modal-iframe-preview"
-              />
-            </Modal>
+            { data?.properties?.category === 'html' ? 
+              <>
+                <Button type="primary" onClick={showModal}>Preview</Button>
+                <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
+                  <ArtContent
+                    style={{ width: 300 }}
+                    height={300}
+                    width={300}
+                    pubkey={id}
+                    active={true}
+                    allowMeshRender={true}
+                    className="modal-iframe-preview"
+                  />
+                </Modal>
+              </> : ''
+            }
           </Col>
           {/* <Divider /> */}
           <Col
