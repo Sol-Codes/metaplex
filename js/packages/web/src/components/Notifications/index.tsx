@@ -137,7 +137,7 @@ export function useCollapseWrappedSol({
         if ((balance && balance.value.uiAmount) || 0 > 0) {
           setShowNotification(true);
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     setTimeout(fn, 60000);
   };
@@ -487,7 +487,13 @@ export function Notifications() {
       content={content}
       trigger="click"
     >
-      <h1 className="title">M</h1>
+      <img src="assets/solcodes-logo-1-reversed.svg" style={
+        {
+          height: '12px',
+          paddingLeft: '16px',
+          paddingRight: '32px',
+        }
+      }/>
     </Popover>
   );
 

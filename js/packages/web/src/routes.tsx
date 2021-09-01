@@ -10,6 +10,7 @@ import {
   AuctionCreateView,
   AuctionView,
   HomeView,
+  AboutView,
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -20,6 +21,11 @@ export function Routes() {
       <HashRouter basename={'/'}>
         <Providers>
           <Switch>
+            <Route
+              exact
+              path="/about"
+              component={() => <AboutView />}
+            />
             <Route exact path="/admin" component={() => <AdminView />} />
             <Route
               exact
