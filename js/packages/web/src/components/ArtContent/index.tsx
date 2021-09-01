@@ -221,7 +221,7 @@ export const ArtContent = ({
     getLast(animationURL.split('?')),
   ).get('ext');
 
-console.log('divij', animationUrlExt)
+// console.log('animationUrlExt:', animationUrlExt)
 
 if(animationUrlExt === 'html') {
   return <IframeArtContent 
