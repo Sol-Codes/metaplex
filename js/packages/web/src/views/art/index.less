@@ -8,6 +8,20 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+
+  iframe&{
+    width: calc(200% + 5px);
+    height: calc(200% + 5px);
+    border: none;
+    // position: absolute;
+    // top: -2px;
+    // left: -2px;
+    background: #fff;
+    transform: scale(.5);
+    transform-origin: top left;
+    // transition: opacity .4s linear .1s;
+    pointer-events:  none;
+  }
 }
 
 .artist-image {
