@@ -16,7 +16,7 @@ export const Footer = () => {
           <Col xs={{ span: 24 }} md={{ span: 12 }}>
             <ul>
               <li>
-                <img src="/assets/solcodes-logo-dual-side.svg" height="25" />
+                <img src="/assets/solcodes-logo-dual-side.svg" height="25" alt="SolCodes | Elevating Digital Art" />
               </li>
               <li>
                 <a href="https://github.com/XPlus1-Labs">

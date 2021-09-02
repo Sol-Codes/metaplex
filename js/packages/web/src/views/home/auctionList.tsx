@@ -152,7 +152,7 @@ export const AuctionListView = () => {
     <>
       <PreSaleBanner auction={heroAuction} />
       <Layout>
-        <Content style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <Content style={{ display: 'flex', flexWrap: 'wrap', margin: '15px' }}>
           <Col style={{ width: '100%', marginTop: 10 }}>
             {liveAuctions.length >= 0 && (
               <Row>
