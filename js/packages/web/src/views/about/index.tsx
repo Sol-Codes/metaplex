@@ -17,7 +17,7 @@ export const AboutView = () => {
         // Elevating Digital Art
       </h2>
       <h3>
-        SolCodes is a humble attempt at Elevating the current state of Digital Art - built by a group of Developers and
+        SolCodes is a humble attempt at Elevating the current state of Digital Art - built by a group of Developers and nightly Gamers.
       </h3>
       <h1 className="art-title" style={{ margin: '40px 0 20px 0' }}>
         How it works
@@ -79,7 +79,7 @@ export const AboutView = () => {
               Aditya Mulgundkar
             </h2>
             <h3>
-              Ex VC-Tech @ GuildCap.com;
+              Tech Lead @ WedEasy.in;
               <br></br>
               Guardian 5 in DoTA
             </h3>
@@ -148,7 +148,7 @@ export const AboutView = () => {
               Pulkit Mahajan
             </h2>
             <h3>
-              Survey Scripting @ Kantar.com
+              Survey Scripting @ Kantar.com;
               <br></br>
               Guardian 5 in DoTA
             </h3>
@@ -171,7 +171,7 @@ export const AboutView = () => {
               Sandesh Gupta
             </h2>
             <h3>
-              Software Dev (Infrastructure) @ OLA
+              Software Dev @ OlaCabs.com;
               <br></br>
               Boosted in DoTA
             </h3>
@@ -194,7 +194,7 @@ export const AboutView = () => {
               Siddharth Gaba
             </h2>
             <h3>
-              Product Dev @ GetKarma.co.uk;
+              Graphic Designer
               <br></br>
               Crusader 5 in DoTA
             </h3>
