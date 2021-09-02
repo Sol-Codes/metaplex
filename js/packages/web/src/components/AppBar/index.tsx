@@ -66,6 +66,8 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       <Link to={`/about`}>
         <Button className="app-btn">About Us</Button>
       </Link>
+      <a><Button onClick={() => window.open('/assets/pdf/market-study.pdf')} className="app-btn">Pitch Deck</Button></a>
+      <a><Button onClick={() => window.open('/assets/pdf/market-study.pdf')} className="app-btn">Market Study</Button></a>
     </div>
   );
 };
@@ -104,6 +106,12 @@ const MetaplexMenu = () => {
                 <Link to={`/about`}>
                   <Button className="app-btn">About Us</Button>
                 </Link>
+              </Menu.Item>
+              <Menu.Item>
+                <a><Button onClick={() => window.open('/assets/pdf/market-study.pdf')} className="app-btn">Pitch Deck</Button></a>
+              </Menu.Item>
+              <Menu.Item>
+                <a><Button onClick={() => window.open('/assets/pdf/market-study.pdf')} className="app-btn">Market Study</Button></a>
               </Menu.Item>
             </Menu>
           }
