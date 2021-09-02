@@ -487,13 +487,7 @@ export function Notifications() {
       content={content}
       trigger="click"
     >
-      <img src="assets/solcodes-logo-1-reversed.svg" style={
-        {
-          height: '12px',
-          paddingLeft: '16px',
-          paddingRight: '32px',
-        }
-      }/>
+      <div className="bg-logo"></div>
     </Popover>
   );
 
