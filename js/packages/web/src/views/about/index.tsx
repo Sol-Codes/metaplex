@@ -14,7 +14,7 @@ export const AboutView = () => {
         About SolCodes
       </h1>
       <h2>
-        // Elevating Digital Art
+        &lt; Elevating Digital Art / &gt;
       </h2>
       <h3>
         SolCodes is a humble attempt at Elevating the current state of Digital Art - built by a group of Developers and nightly Gamers.
