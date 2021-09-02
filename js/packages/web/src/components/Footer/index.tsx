@@ -13,24 +13,29 @@ export const Footer = () => {
         }}
       >
         <Row>
-          <Col span={12}>
+          <Col xs={{ span: 24 }} md={{ span: 12 }}>
             <ul>
               <li>
-                <img src="/assets/solcodes-logo-dual-side.svg" height="20" />
+                <img src="/assets/solcodes-logo-dual-side.svg" height="25" />
               </li>
               <li>
-                <a href="#">
+                <a href="https://github.com/XPlus1-Labs">
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/xplus1labs">
                   Twitter
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://xplus1labs.com">
                   Blog
                 </a>
               </li>
             </ul>
           </Col>
-          <Col span={12}>
+          <Col xs={{ span: 24 }} md={{ span: 12 }}>
             <ul className="ul-right">
               <li>
                 <a href="#">

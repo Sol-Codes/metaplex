@@ -10,7 +10,7 @@ import { MetaAvatar } from '../../components/MetaAvatar';
 import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from './../../components/ViewOn';
 import { ArtType } from '../../types';
-import  { useState } from 'react';
+import { useState } from 'react';
 
 const { Content } = Layout;
 
@@ -71,12 +71,12 @@ export const ArtView = () => {
       <br />
     </>
   );
-// console.log('data:', data)
+  // console.log('data:', data)
   return (
     <Content>
       <Col>
         <Row ref={ref}>
-          <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px' }}>
+          <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px 30px 30px 0' }}>
             <div className="artwork-image-container">
               <ArtContent
                 style={{ width: 300 }}
@@ -88,9 +88,15 @@ export const ArtView = () => {
                 allowMeshRender={true}
               />
             </div>
-            { data?.properties?.category === 'html' ? 
+            {data?.properties?.category === 'html' ?
               <>
-                <Button style={{marginTop: '20px', float:'right', zIndex: 1}} type="primary" onClick={showModal}>Preview</Button>
+                <div>
+                  <Button style={{
+                    marginTop: '20px',
+                    width: '100%',
+                    zIndex: 1
+                  }} type="primary" onClick={showModal}>Preview</Button>
+                </div>
                 <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
                   <ArtContent
                     pubkey={id}
@@ -109,7 +115,7 @@ export const ArtView = () => {
             style={{ textAlign: 'left', fontSize: '1.4rem' }}
           >
             <Row>
-              <div style={{ fontWeight: 700, fontSize: '4rem' }}>
+              <div style={{ fontWeight: 700, fontSize: '3rem', lineHeight: '3.5rem', margin: '20px 0px' }}>
                 {art.title || <Skeleton paragraph={{ rows: 0 }} />}
               </div>
             </Row>
@@ -209,6 +215,7 @@ export const ArtView = () => {
                 </Button> */}
           </Col>
           <Col span="12">
+            <br />
             <Divider />
             {art.creators?.find(c => !c.verified) && unverified}
             <br />

@@ -104,7 +104,7 @@ export const AboutView = () => {
             <h3>
               Software Dev @ DripCapital.com;
               <br></br>
-              Guardian 5 in DoTA
+              Crusader 4 in DoTA
             </h3>
           </div>
         </Col>
@@ -127,7 +127,7 @@ export const AboutView = () => {
             <h3>
               Product Dev @ GetKarma.co.uk;
               <br></br>
-              Crusader 5 in DoTA
+              Crusader 3 in DoTA
             </h3>
           </div>
         </Col>
@@ -150,7 +150,7 @@ export const AboutView = () => {
             <h3>
               Survey Scripting @ Kantar.com;
               <br></br>
-              Guardian 5 in DoTA
+              Legend 4 in DoTA
             </h3>
           </div>
         </Col>
@@ -196,7 +196,7 @@ export const AboutView = () => {
             <h3>
               Graphic Designer
               <br></br>
-              Crusader 5 in DoTA
+              Archon 5 in DoTA
             </h3>
           </div>
         </Col>

@@ -4,7 +4,7 @@
 
 @color-primary:#236bda; // sea blue
 @color-secondary:#24d3c5; // sea blue
-
+@color-tertiary:#38aadd; // sea blue
 
 .ant-layout-content {
   overflow: auto !important;
@@ -140,11 +140,15 @@
   color: black;
 }
 
+.ant-btn-primary {
+  background: @color-tertiary;
+  border: 1px solid @color-tertiary;
+}
+
 .ant-btn-primary:hover,
 .ant-btn-primary:focus {
-  color: #5969d4;
-  background: transparent;
-  border-color: #5969d4;
+  background: @color-primary;
+  border: 1px solid @color-primary;
 }
 
 .create-statistic {
