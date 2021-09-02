@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Divider, Layout, Tag, Button, Skeleton, List, Card, Modal } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useArt, useExtendedArt } from './../../hooks';
 
 import { ArtContent } from '../../components/ArtContent';
@@ -145,7 +145,7 @@ export const ArtView = () => {
                         }}
                       >
                         <MetaAvatar creators={[creator]} size={64} />
-                        <div>
+                        <Link to={`/artists/${creator.address}`} key={idx}>
                           <span className="creator-name">
                             {creator.name ||
                               shortenAddress(creator.address || '')}
@@ -174,7 +174,7 @@ export const ArtView = () => {
                                 tag
                               ))}
                           </div>
-                        </div>
+                        </Link>
                       </div>
                     );
                   })}
