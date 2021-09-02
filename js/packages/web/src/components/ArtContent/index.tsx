@@ -221,9 +221,10 @@ export const ArtContent = ({
     getLast(animationURL.split('?')),
   ).get('ext');
 
-// console.log('animationUrlExt:', animationUrlExt)
+// console.log('animationUrlExt:', animationURL)
 
-if(animationUrlExt === 'html') {
+if(category === 'html') {
+  // console.log('is html')
   return <IframeArtContent 
     className={className} 
     htmlUrl={animationURL}

@@ -315,7 +315,7 @@ const UploadStep = (props: {
 
   const [customURL, setCustomURL] = useState<string>('');
   const [customURLErr, setCustomURLErr] = useState<string>('');
-  const disableContinue = !coverFile || !!customURLErr;
+  const disableContinue = props.attributes.properties?.category === MetadataCategory.HTML? !mainFile : !coverFile || !!customURLErr;
 
   useEffect(() => {
     props.setAttributes({
@@ -373,30 +373,32 @@ const UploadStep = (props: {
           very first time.
         </p>
       </Row>
-      <Row className="content-action">
-        <h3>Upload a cover image (PNG, JPG, GIF)</h3>
-        <Dragger
-          accept=".png,.jpg,.gif,.mp4"
-          style={{ padding: 20 }}
-          multiple={false}
-          customRequest={info => {
-            // dont upload files here, handled outside of the control
-            info?.onSuccess?.({}, null as any);
-          }}
-          fileList={coverFile ? [coverFile as any] : []}
-          onChange={async info => {
-            const file = info.file.originFileObj;
-            if (file) setCoverFile(file);
-          }}
-        >
-          <div className="ant-upload-drag-icon">
-            <h3 style={{ fontWeight: 700 }}>
-              Upload your cover image (PNG, JPG, GIF)
-            </h3>
-          </div>
-          <p className="ant-upload-text">Drag and drop, or click to browse</p>
-        </Dragger>
-      </Row>
+      {props.attributes.properties?.category !== MetadataCategory.HTML?
+        <Row className="content-action">
+          <h3>Upload a cover image (PNG, JPG, GIF)</h3>
+          <Dragger
+            accept=".png,.jpg,.gif,.mp4"
+            style={{ padding: 20 }}
+            multiple={false}
+            customRequest={info => {
+              // dont upload files here, handled outside of the control
+              info?.onSuccess?.({}, null as any);
+            }}
+            fileList={coverFile ? [coverFile as any] : []}
+            onChange={async info => {
+              const file = info.file.originFileObj;
+              if (file) setCoverFile(file);
+            }}
+          >
+            <div className="ant-upload-drag-icon">
+              <h3 style={{ fontWeight: 700 }}>
+                Upload your cover image (PNG, JPG, GIF)
+              </h3>
+            </div>
+            <p className="ant-upload-text">Drag and drop, or click to browse</p>
+          </Dragger>
+        </Row>:''
+      }
       {props.attributes.properties?.category !== MetadataCategory.Image && (
         <Row
           className="content-action"
@@ -432,7 +434,9 @@ const UploadStep = (props: {
           </Dragger>
         </Row>
       )}
-      <Form.Item
+      {
+        props.attributes.properties?.category !== MetadataCategory.HTML ?
+        <Form.Item
         style={{
           width: '100%',
           flexDirection: 'column',
@@ -468,7 +472,8 @@ const UploadStep = (props: {
             }
           }}
         />
-      </Form.Item>
+      </Form.Item> :''
+      }
       <Row>
         <Button
           type="primary"
@@ -571,7 +576,7 @@ const InfoStep = (props: {
     props.attributes,
   );
   const [form] = Form.useForm();
-
+  // console.log(props.attributes.properties.category);
   useEffect(() => {
     setRoyalties(
       creators.map(creator => ({
@@ -591,7 +596,7 @@ const InfoStep = (props: {
       </Row>
       <Row className="content-action" justify="space-around">
         <Col>
-          {props.attributes.image && (
+          {(props.attributes.image ||  props.attributes.properties.category === MetadataCategory.HTML) && (
             <ArtCard
               image={image}
               animationURL={animation_url}
@@ -1064,7 +1069,7 @@ const LaunchStep = (props: {
       </Row>
       <Row className="content-action" justify="space-around">
         <Col>
-          {props.attributes.image && (
+          {(props.attributes.image || props.attributes.properties.category === MetadataCategory.HTML) && (
             <ArtCard
               image={image}
               animationURL={animation_url}
