@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Button, Skeleton, Carousel, List, Card } from 'antd';
+import { Row, Col, Button, Skeleton, Carousel, List, Card, Modal } from 'antd';
 import { AuctionCard } from '../../components/AuctionCard';
 import { Connection } from '@solana/web3.js';
 import {
@@ -40,11 +40,13 @@ export const AuctionItem = ({
   index,
   size,
   active,
+  isHtml,
 }: {
   item: AuctionViewItem;
   index: number;
   size: number;
   active?: boolean;
+  isHtml?: boolean;
 }) => {
   const id = item.metadata.pubkey;
   var style: React.CSSProperties = {
@@ -52,9 +54,9 @@ export const AuctionItem = ({
       index === 0
         ? ''
         : `translate(${index * 15}px, ${-40 * index}px) scale(${Math.max(
-            1 - 0.2 * index,
-            0,
-          )})`,
+          1 - 0.2 * index,
+          0,
+        )})`,
     transformOrigin: 'right bottom',
     position: index !== 0 ? 'absolute' : 'static',
     zIndex: -1 * index,
@@ -63,10 +65,11 @@ export const AuctionItem = ({
     boxShadow: 'rgb(0 0 0 / 10%) 12px 2px 20px 14px',
     height: 300,
   };
+
   return (
     <ArtContent
       pubkey={id}
-      className="artwork-image stack-item"
+      className={isHtml ? "modal-iframe-preview" : "artwork-image stack-item"}
       style={style}
       active={active}
       allowMeshRender={true}
@@ -97,6 +100,43 @@ export const AuctionView = () => {
   const description = data?.description;
   const attributes = data?.attributes;
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+  var itemsHtml;
+  if (data?.properties?.category === "html") {
+    itemsHtml = [
+      ...(auction?.items
+        .flat()
+        .reduce((agg, item) => {
+          agg.set(item.metadata.pubkey, item);
+          return agg;
+        }, new Map<string, AuctionViewItem>())
+        .values() || []),
+      auction?.participationItem,
+    ].map((item, index, arr) => {
+      if (!item || !item?.metadata || !item.metadata?.pubkey) {
+        return null;
+      }
+
+      return (
+        <AuctionItem
+          key={item.metadata.pubkey}
+          item={item}
+          index={index}
+          size={arr.length}
+          active={index === currentIndex}
+          isHtml={true}
+        ></AuctionItem>
+      );
+    });
+  }
   const items = [
     ...(auction?.items
       .flat()
@@ -118,22 +158,94 @@ export const AuctionView = () => {
         index={index}
         size={arr.length}
         active={index === currentIndex}
+        isHtml={false}
       ></AuctionItem>
     );
   });
 
   return (
     <>
-      <Row justify="space-around" ref={ref}>
-        <Col span={24} md={12} className="pr-4">
-          <div className="auction-view" style={{ minHeight: 300 }}>
-            <Carousel
-              autoplay={false}
-              afterChange={index => setCurrentIndex(index)}
-            >
-              {items}
-            </Carousel>
-          </div>
+      <Row ref={ref}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px 30px 30px 0' }}>
+          {data?.properties?.category === 'html' ?
+            <>
+              <div className="artwork-image-container">
+                {items}
+                <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
+                  {itemsHtml}
+                </Modal>
+              </div>
+              <div>
+                <Button style={{
+                  marginTop: '20px',
+                  width: '100%',
+                  zIndex: 1
+                }} type="primary" onClick={showModal}>Preview</Button>
+              </div>
+            </> : ''
+          }
+          {data?.properties?.category === 'html' ?
+            '' :
+            <div className="auction-view" style={{ minHeight: 300 }}>
+              <Carousel
+                autoplay={false}
+                afterChange={index => setCurrentIndex(index)}
+              >
+                {items}
+              </Carousel>
+            </div>
+          }
+        </Col>
+
+        <Col span={24} md={12}>
+          <h2 className="art-title">
+            {art.title || <Skeleton paragraph={{ rows: 0 }} />}
+          </h2>
+          <Row gutter={[50, 0]} style={{ marginRight: 'unset' }}>
+            <Col>
+              <h6>Edition</h6>
+              {!auction && (
+                <Skeleton title={{ width: '100%' }} paragraph={{ rows: 0 }} />
+              )}
+              {auction && (
+                <p className="auction-art-edition">
+                  {(auction?.items.length || 0) > 1 ? 'Multiple' : edition}
+                </p>
+              )}
+            </Col>
+
+            <Col>
+              <h6>View on</h6>
+              <div style={{ display: 'flex' }}>
+                <Button
+                  className="tag"
+                  onClick={() => window.open(art.uri || '', '_blank')}
+                >
+                  Arweave
+                </Button>
+                <Button
+                  className="tag"
+                  onClick={() =>
+                    window.open(
+                      `https://explorer.solana.com/account/${art?.mint || ''}${env.indexOf('main') >= 0 ? '' : `?cluster=${env}`
+                      }`,
+                      '_blank',
+                    )
+                  }
+                >
+                  Solana
+                </Button>
+              </div>
+            </Col>
+          </Row>
+
+          {!auction && <Skeleton paragraph={{ rows: 6 }} />}
+          {auction && <AuctionCard auctionView={auction} />}
+          <AuctionBids auctionView={auction} />
+        </Col>
+
+
+        <Col span={24} md={12}>
           <h6>Number Of Winners</h6>
           <h1>
             {winnerCount === undefined ? (
@@ -182,53 +294,7 @@ export const AuctionView = () => {
             </>
           )} */}
         </Col>
-
         <Col span={24} md={12}>
-          <h2 className="art-title">
-            {art.title || <Skeleton paragraph={{ rows: 0 }} />}
-          </h2>
-          <Row gutter={[50, 0]} style={{ marginRight: 'unset' }}>
-            <Col>
-              <h6>Edition</h6>
-              {!auction && (
-                <Skeleton title={{ width: '100%' }} paragraph={{ rows: 0 }} />
-              )}
-              {auction && (
-                <p className="auction-art-edition">
-                  {(auction?.items.length || 0) > 1 ? 'Multiple' : edition}
-                </p>
-              )}
-            </Col>
-
-            <Col>
-              <h6>View on</h6>
-              <div style={{ display: 'flex' }}>
-                <Button
-                  className="tag"
-                  onClick={() => window.open(art.uri || '', '_blank')}
-                >
-                  Arweave
-                </Button>
-                <Button
-                  className="tag"
-                  onClick={() =>
-                    window.open(
-                      `https://explorer.solana.com/account/${art?.mint || ''}${
-                        env.indexOf('main') >= 0 ? '' : `?cluster=${env}`
-                      }`,
-                      '_blank',
-                    )
-                  }
-                >
-                  Solana
-                </Button>
-              </div>
-            </Col>
-          </Row>
-
-          {!auction && <Skeleton paragraph={{ rows: 6 }} />}
-          {auction && <AuctionCard auctionView={auction} />}
-          <AuctionBids auctionView={auction} />
         </Col>
       </Row>
     </>
@@ -279,8 +345,8 @@ const BidLine = (props: {
         opacity: isActive ? undefined : 0.5,
         ...(isme
           ? {
-              backgroundColor: '#ffffff21',
-            }
+            backgroundColor: '#ffffff21',
+          }
           : {}),
       }}
     >
