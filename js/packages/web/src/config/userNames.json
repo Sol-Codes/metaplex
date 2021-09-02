@@ -29,9 +29,27 @@
     "description": "Account used by Solana to mint official NFTs.",
     "background": ""
   },
-  "H4F9TBJzqd3e7LRDy5Muwsi2g1h1cgrF2umUyrTxuSQr": {
-    "name": "XPlus-1",
+  "DgHdVdiQUHJCa7BJ8wiBEkbwBtnakBRNrnF2ehJqpG5X": {
+    "name": "XPlus1 Labs",
     "image": "https://pbs.twimg.com/profile_images/1424000538589335556/CQZUr0hV_400x400.jpg",
+    "description": "Account used by X+1.",
+    "background": ""
+  },
+  "2KgixkFDmd2UiZW66pNLSkMHYbb6Hmyd4akzWkS8B2QU": {
+    "name": "Pulkit Mahajan",
+    "image": "https://pbs.twimg.com/profile_images/1433521553153531905/nntmk7VL_400x400.jpg",
+    "description": "Account used by X+1.",
+    "background": ""
+  },
+  "J6SvNfhPFkNaHKgdfngSx2q7VV4FkkE2gRrNNuLxH5kS": {
+    "name": "Divij Bhardwaj",
+    "image": "https://media-exp1.licdn.com/dms/image/C4E03AQEvK2FKQ01ReQ/profile-displayphoto-shrink_800_800/0/1611823047255?e=1635984000&v=beta&t=9O7aj4Rb7nsGJw7CiFER8WYaWjkMBPUPSOEI9cLWqMQ",
+    "description": "Account used by X+1.",
+    "background": ""
+  },
+  "Cie4TWdsnpBdaEkm5GgDW5ezCEcv34HKHPA5iLNn8apL": {
+    "name": "Aditya Mulgundkar",
+    "image": "https://pbs.twimg.com/profile_images/1426038363820154885/DC_Nk2sT_400x400.jpg",
     "description": "Account used by X+1.",
     "background": ""
   }
