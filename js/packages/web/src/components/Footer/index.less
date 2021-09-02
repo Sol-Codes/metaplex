@@ -1,3 +1,26 @@
 .footer {
-  margin: 20px 0 20px 0;
+  margin: 0;
+  background: #121212;
+  padding: 30px;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      img {
+        padding-right: 20px;
+      }
+      a {
+        color: white;
+        padding: 0 20px;
+        &:hover {
+          color: @color-secondary;
+        }
+      }
+    }
+  }
+  .ul-right {
+    justify-content: flex-end;
+  }
 }
