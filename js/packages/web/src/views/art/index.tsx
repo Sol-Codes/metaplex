@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Divider, Layout, Tag, Button, Skeleton, List, Card } from 'antd';
+import { Row, Col, Divider, Layout, Tag, Button, Skeleton, List, Card, Modal } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useArt, useExtendedArt } from './../../hooks';
 
@@ -10,10 +10,21 @@ import { MetaAvatar } from '../../components/MetaAvatar';
 import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from './../../components/ViewOn';
 import { ArtType } from '../../types';
+import  { useState } from 'react';
 
 const { Content } = Layout;
 
 export const ArtView = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const { id } = useParams<{ id: string }>();
   const wallet = useWallet();
 
@@ -60,21 +71,36 @@ export const ArtView = () => {
       <br />
     </>
   );
-
+// console.log('data:', data)
   return (
     <Content>
       <Col>
         <Row ref={ref}>
           <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px' }}>
-            <ArtContent
-              style={{ width: 300 }}
-              height={300}
-              width={300}
-              className="artwork-image"
-              pubkey={id}
-              active={true}
-              allowMeshRender={true}
-            />
+            <div className="artwork-image-container">
+              <ArtContent
+                style={{ width: 300 }}
+                height={300}
+                width={300}
+                className="artwork-image"
+                pubkey={id}
+                active={true}
+                allowMeshRender={true}
+              />
+            </div>
+            { data?.properties?.category === 'html' ? 
+              <>
+                <Button style={{marginTop: '20px', float:'right', zIndex: 1}} type="primary" onClick={showModal}>Preview</Button>
+                <Modal width="100%" title="Preview" visible={isModalVisible} onCancel={handleCancel} footer={null} centered>
+                  <ArtContent
+                    pubkey={id}
+                    active={true}
+                    allowMeshRender={true}
+                    className="modal-iframe-preview"
+                  />
+                </Modal>
+              </> : ''
+            }
           </Col>
           {/* <Divider /> */}
           <Col

@@ -9,6 +9,20 @@ import { PublicKey } from '@solana/web3.js';
 import { getLast } from '../../utils/utils';
 import { pubkeyToString } from '../../utils/pubkeyToString';
 
+const IframeArtContent = ({
+  htmlUrl,
+  className
+}:{
+  htmlUrl:string,
+  className?: string;
+}) => {
+  return <iframe 
+  src={htmlUrl}
+  // src="https://healthxp.in/st-search?s=&str=opti&post_type=product&catids=1276&orderby=featured"
+  className={className}
+  />
+};
+
 const MeshArtContent = ({
   uri,
   animationUrl,
@@ -167,7 +181,6 @@ export const ArtContent = ({
   active,
   allowMeshRender,
   pubkey,
-
   uri,
   animationURL,
   files,
@@ -189,6 +202,7 @@ export const ArtContent = ({
   const id = pubkeyToString(pubkey);
 
   const { ref, data } = useExtendedArt(id);
+  // console.log('data is:', data)
 
   if (pubkey && data) {
     uri = data.image;
@@ -201,11 +215,20 @@ export const ArtContent = ({
   }
 
   animationURL = animationURL || '';
+  // console.log('html url', animationURL)
 
   const animationUrlExt = new URLSearchParams(
     getLast(animationURL.split('?')),
   ).get('ext');
 
+// console.log('animationUrlExt:', animationUrlExt)
+
+if(animationUrlExt === 'html') {
+  return <IframeArtContent 
+    className={className} 
+    htmlUrl={animationURL}
+  />
+}
   if (
     allowMeshRender &&
     (category === 'vr' ||
