@@ -1,3 +1,6 @@
+.artwork-image-container{
+  height: 100%;
+}
 
 .artwork-image {
   display: flex;
@@ -8,6 +11,17 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+
+  iframe&{
+    width: calc(200% + 5px);
+    height: calc(200% + 5px);
+    max-height: calc(200% + 5px);
+    border: none;
+    background: #fff;
+    transform: scale(.5);
+    transform-origin: top left;
+    pointer-events:  none;
+  }
 }
 
 .artist-image {
@@ -38,4 +52,13 @@
   font-weight: 600;
   font-size: 1.3rem;
   color: #fff;
+}
+
+.modal-iframe-preview {
+  iframe&{
+    background:white;
+    border: none;
+    width:100%;
+    height: calc(100vh - 130px)
+  }
 }

@@ -1,23 +1,51 @@
 import React from 'react';
+import { Layout, Row, Col } from 'antd';
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
 export const Footer = () => {
   return (
     <div className={'footer'}>
-      <Button
-        shape={'circle'}
-        target={'_blank'}
-        href={'https://github.com/metaplex-foundation/metaplex'}
-        icon={<GithubOutlined />}
-        style={{ marginRight: '20px' }}
-      ></Button>
-      <Button
-        shape={'circle'}
-        target={'_blank'}
-        href={'https://twitter.com/solana'}
-        icon={<TwitterOutlined />}
-      ></Button>
+      <Layout
+        style={{
+          padding: '30px',
+          maxWidth: 1400,
+        }}
+      >
+        <Row>
+          <Col span={12}>
+            <ul>
+              <li>
+                <img src="/assets/solcodes-logo-dual-side.svg" height="20" />
+              </li>
+              <li>
+                <a href="#">
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </Col>
+          <Col span={12}>
+            <ul className="ul-right">
+              <li>
+                <a href="#">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </Col>
+        </Row>
+      </Layout>
     </div>
   );
 };

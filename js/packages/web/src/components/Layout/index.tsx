@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { LABELS } from '../../constants';
 import { AppBar } from '../AppBar';
 import useWindowDimensions from '../../utils/layout';
+import { Footer } from '../Footer';
 
 const { Header, Content } = Layout;
 
@@ -20,16 +21,23 @@ export const AppLayout = React.memo((props: any) => {
       <Layout
         title={LABELS.APP_TITLE}
         style={{
-          padding: paddingForLayout(width),
-          maxWidth: 1000,
         }}
       >
-        <Header className="App-Bar">
-          <AppBar />
-        </Header>
-        <Content style={{ overflow: 'scroll', paddingBottom: 50 }}>
-          {props.children}
-        </Content>
+        <Layout
+          title={LABELS.APP_TITLE}
+          style={{
+            padding: paddingForLayout(width),
+            maxWidth: 1000,
+          }}
+        >
+          <Header className="App-Bar">
+            <AppBar />
+          </Header>
+          <Content style={{ overflow: 'scroll', paddingBottom: 50 }}>
+            {props.children}
+          </Content>
+        </Layout>
+        <Footer />
       </Layout>
     </>
   );
