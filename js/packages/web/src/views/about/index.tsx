@@ -116,29 +116,6 @@ export const AboutView = () => {
             margin: '10px',
             borderRadius: '10px',
           }}>
-            <img src="assets/person/marmik-thakkar.jpg" style={{
-              width: '100px',
-              height: '100px',
-              borderRadius: '100%',
-            }} />
-            <h2>
-              Marmik Thakkar
-            </h2>
-            <h3>
-              Product Dev @ GetKarma.co.uk;
-              <br></br>
-              Crusader 3 in DoTA
-            </h3>
-          </div>
-        </Col>
-
-        <Col span={8}>
-          <div style={{
-            background: '#282828',
-            padding: '20px 0px 10px 0px',
-            margin: '10px',
-            borderRadius: '10px',
-          }}>
             <img src="assets/person/pulkit-mahajan.jpg" style={{
               width: '100px',
               height: '100px',
@@ -162,18 +139,18 @@ export const AboutView = () => {
             margin: '10px',
             borderRadius: '10px',
           }}>
-            <img src="assets/person/sandesh-gupta.jpg" style={{
+            <img src="assets/person/marmik-thakkar.jpg" style={{
               width: '100px',
               height: '100px',
               borderRadius: '100%',
             }} />
             <h2>
-              Sandesh Gupta
+              Marmik Thakkar
             </h2>
             <h3>
-              Software Dev @ OlaCabs.com;
+              Product Dev @ GetKarma.co.uk;
               <br></br>
-              Boosted in DoTA
+              Crusader 3 in DoTA
             </h3>
           </div>
         </Col>
@@ -197,6 +174,29 @@ export const AboutView = () => {
               Graphic Designer
               <br></br>
               Archon 5 in DoTA
+            </h3>
+          </div>
+        </Col>
+
+        <Col span={8}>
+          <div style={{
+            background: '#282828',
+            padding: '20px 0px 10px 0px',
+            margin: '10px',
+            borderRadius: '10px',
+          }}>
+            <img src="assets/person/sandesh-gupta.jpg" style={{
+              width: '100px',
+              height: '100px',
+              borderRadius: '100%',
+            }} />
+            <h2>
+              Sandesh Gupta
+            </h2>
+            <h3>
+              Software Dev @ OlaCabs.com;
+              <br></br>
+              Boosted in DoTA
             </h3>
           </div>
         </Col>
