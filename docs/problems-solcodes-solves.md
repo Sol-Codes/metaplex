@@ -1,0 +1,1 @@
+- The inability to build an NFT that can change:

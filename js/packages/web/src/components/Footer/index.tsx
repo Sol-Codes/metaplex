@@ -20,18 +20,13 @@ export const Footer = () => {
                 <img src="/assets/solcodes-logo-dual-side.svg" height="25" alt="SolCodes | Elevating Digital Art" />
               </li>
               <li>
-                <a href="https://github.com/XPlus1-Labs">
+                <a href="https://github.com/XPlus1-Labs" target="_blank">
                   GitHub
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/xplus1labs">
+                <a href="https://twitter.com/xplus1labs" target="_blank">
                   Twitter
-                </a>
-              </li>
-              <li>
-                <a href="https://xplus1labs.com">
-                  Blog
                 </a>
               </li>
             </ul>
