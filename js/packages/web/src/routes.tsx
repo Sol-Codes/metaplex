@@ -11,6 +11,7 @@ import {
   AuctionView,
   HomeView,
   AboutView,
+  PitchDeckView
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -60,6 +61,7 @@ export function Routes() {
               path="/auction/:id/billing"
               component={() => <BillingView />}
             />
+            <Route exact path="/pitch-deck" component={() => <PitchDeckView />} />
             <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>
