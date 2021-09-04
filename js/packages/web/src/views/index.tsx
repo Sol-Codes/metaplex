@@ -9,3 +9,5 @@ export { AuctionCreateView } from './auctionCreate';
 export { ArtworksView } from './artworks';
 export { AnalyticsView } from './analytics';
 export { PitchDeckView } from './pitch-deck';
+export {PitchDeckTriviaView} from './pitch-deck-trivia'
+export {DiscordView} from './discord'

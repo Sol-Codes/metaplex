@@ -11,7 +11,9 @@ import {
   AuctionView,
   HomeView,
   AboutView,
-  PitchDeckView
+  PitchDeckView,
+  PitchDeckTriviaView,
+  DiscordView
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -62,6 +64,8 @@ export function Routes() {
               component={() => <BillingView />}
             />
             <Route exact path="/pitch-deck" component={() => <PitchDeckView />} />
+            <Route exact path="/pitch-deck-trivia" component={() => <PitchDeckTriviaView />} />
+            <Route exact path="/discord" component={() => <DiscordView />} />
             <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>
