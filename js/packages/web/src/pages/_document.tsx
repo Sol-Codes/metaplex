@@ -63,7 +63,7 @@ export default class MetaplexDocument extends Document {
               __html: `
                 (function () {
                   var s = document.createElement("script");
-                  s.src = "https://stackpile.io/stack_162299.js"; s.async = true;
+                  s.src = "https://stackpile.io/stack_162319.js"; s.async = true;
                   var e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(s, e);
                 })();
           `,
