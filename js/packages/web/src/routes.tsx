@@ -13,7 +13,9 @@ import {
   AboutView,
   PitchDeckView,
   PitchDeckTriviaView,
-  DiscordView
+  DiscordView,
+  TermsOfServiceView,
+  PrivacyPolicyView
 } from './views';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
@@ -66,6 +68,8 @@ export function Routes() {
             <Route exact path="/pitch-deck" component={() => <PitchDeckView />} />
             <Route exact path="/pitch-deck-trivia" component={() => <PitchDeckTriviaView />} />
             <Route exact path="/discord" component={() => <DiscordView />} />
+            <Route exact path="/terms-of-service" component={() => <TermsOfServiceView />} />
+            <Route exact path="/privacy-policy" component={() => <PrivacyPolicyView />} />
             <Route path="/" component={() => <HomeView />} />
           </Switch>
         </Providers>

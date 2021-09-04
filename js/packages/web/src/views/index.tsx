@@ -11,3 +11,5 @@ export { AnalyticsView } from './analytics';
 export { PitchDeckView } from './pitch-deck';
 export {PitchDeckTriviaView} from './pitch-deck-trivia'
 export {DiscordView} from './discord'
+export {TermsOfServiceView} from './terms-of-service'
+export {PrivacyPolicyView} from './privacy-policy'
