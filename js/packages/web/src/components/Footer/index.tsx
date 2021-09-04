@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, Row, Col } from 'antd';
 import { GithubOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -38,14 +39,14 @@ export const Footer = () => {
           <Col xs={{ span: 24 }} md={{ span: 12 }}>
             <ul className="ul-right">
               <li>
-                <a href="#">
-                  Terms of Service
-                </a>
+                <Link to={`/terms-of-service`}>
+                  <a className="app-btn">Terms of Service</a>
+                </Link>
               </li>
               <li>
-                <a href="#">
-                  Privacy Policy
-                </a>
+                <Link to={`/privacy-policy`}>
+                  <a className="app-btn">Privacy Policy</a>
+                </Link>
               </li>
             </ul>
           </Col>

@@ -1,8 +1,7 @@
-import { Layout } from 'antd';
+import {Layout, Row, Col } from 'antd';
 import React from 'react';
 import { useStore } from '@oyster/common';
 import { useMeta } from '../../contexts';
-import { Row, Col } from 'antd';
 
 export const AboutView = () => {
   const { isLoading, store } = useMeta();
@@ -76,7 +75,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/adityamulgundkar/" target="_blank">
               Aditya Mulgundkar
+              </a>
             </h2>
             <h3>
               Tech Lead @ WedEasy.in;
@@ -99,7 +100,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/divij-bhardwaj/" target="_blank">
               Divij Bharadwaj
+              </a>
             </h2>
             <h3>
               Software Dev @ DripCapital.com;
@@ -122,7 +125,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/pulkit-mahajan-534847148/" target="_blank">
               Pulkit Mahajan
+              </a>
             </h2>
             <h3>
               Survey Scripting @ Kantar.com;
@@ -145,7 +150,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/marmik-thakkar/" target="_blank">
               Marmik Thakkar
+              </a>
             </h2>
             <h3>
               Product Dev @ GetKarma.co.uk;
@@ -168,7 +175,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/siddharth-gaba-213655154/" target="_blank">
               Siddharth Gaba
+              </a>
             </h2>
             <h3>
               Graphic Designer
@@ -191,7 +200,9 @@ export const AboutView = () => {
               borderRadius: '100%',
             }} />
             <h2>
+              <a href="https://www.linkedin.com/in/sandesh-sde/" target="_blank">
               Sandesh Gupta
+              </a>
             </h2>
             <h3>
               Software Dev @ OlaCabs.com;
