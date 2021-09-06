@@ -180,7 +180,7 @@ export const AboutView = () => {
               </a>
             </h2>
             <h3>
-              Graphic Designer
+              UI/UX Designer
               <br></br>
               Archon 5 in DoTA
             </h3>
