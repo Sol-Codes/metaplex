@@ -1,4 +1,87 @@
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Table } from 'antd';
+
+const columns = [
+  {
+    title: 'Slide Title',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Background Image',
+    dataIndex: 'img',
+    key: 'img',
+    render: img => <img src={img} width={250} />,
+  },
+  {
+    title: 'Reference Art/ Art Form',
+    dataIndex: 'reference',
+    key: 'reference',
+  },
+  {
+    title: 'Trivia',
+    dataIndex: 'trivia',
+    key: 'trivia',
+  },
+];
+
+const data = [
+  {
+    key: '1',
+    name: 'Opening Slide',
+    img: 'assets/pitch-deck/and-god-made-adam.png',
+    reference: 'And God Made Adam',
+    trivia: '',
+  },
+  {
+    key: '2',
+    name: 'Problem Statement',
+    img: 'assets/pitch-deck/ukiyo-e-buddha.png',
+    reference: 'Ukiyo-e Buddha',
+    trivia: '',
+  },
+  {
+    key: '3',
+    name: 'Current State',
+    img: 'assets/pitch-deck/memento-mori.png',
+    reference: 'Memento Mori',
+    trivia: '',
+  },
+  {
+    key: '4',
+    name: 'Our Vision',
+    img: 'assets/pitch-deck/david-michaelangelo.png',
+    reference: 'David by Michaelangelo',
+    trivia: '',
+  },
+  {
+    key: '5',
+    name: 'SolCodes Pitch Deck',
+    img: 'assets/pitch-deck/whistlers-mother.png',
+    reference: 'Whistler\'s Mother',
+    trivia: '',
+  },
+  {
+    key: '6',
+    name: 'Financial Estimates & Projections',
+    img: 'assets/pitch-deck/state-of-the-art.png',
+    reference: 'State of the Art',
+    trivia: '',
+  },
+  {
+    key: '7',
+    name: 'Quote',
+    img: 'assets/pitch-deck/banksy-robbo-quantum.png',
+    reference: 'Banksy, Robbo and the death of NFTs',
+    trivia: '',
+  },,
+  {
+    key: '8',
+    name: 'Thank You',
+    img: 'assets/pitch-deck/banksy-robbo-quantum.png',
+    reference: 'And God Made Adam',
+    trivia: '',
+  },
+];
 
 export const PitchDeckTriviaView = () => {
   return (
@@ -13,9 +96,9 @@ export const PitchDeckTriviaView = () => {
               view our Pitch Deck
             </a>.
           </h3>
-          <p>
-            Table showing each image and the idea behind goes here.
-          </p>
+          <Table columns={columns} dataSource={data} style={{
+            marginTop:"50px"
+          }} />
         </Col>
       </Row>
     </Layout>
