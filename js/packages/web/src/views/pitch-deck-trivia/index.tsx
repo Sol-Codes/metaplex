@@ -65,14 +65,14 @@ const data:any[] = [
     name: 'Financial Estimates & Projections',
     img: 'assets/pitch-deck/state-of-the-art.png',
     reference: 'State of the Art',
-    trivia: 'This one\'s pretty close to our heart - our avant-garde UI/UX Designer, Siddharth wanted to use 1 slide to make a digital painting. In State of the Art, Siddharth has tried to shed light on the human intent behind loving art - from pondering over beauty, to falling in love with, to treating it as a currency.',
+    trivia: 'This unknown artist has tried to shed light on the human intent behind loving art - from pondering over beauty, to falling in love with, to treating it as a currency.',
   },
   {
     key: '7',
     name: 'Quote',
     img: 'assets/pitch-deck/banksy-robbo-quantum.png',
     reference: 'Banksy, Robbo and the death of static NFTs',
-    trivia: 'There once was a graffiti war between two of the best - Banksy and King Robbo. While the war ended on a tragic note, with Robbbo\'s death, one of the famous places where they re-painted each other\'s artwork is this tunnel in Camden. One of Banksy\'s early works was a witty reply - a painter peeling off Robbo\' graffiti. We used this same image, but replaced Robbo\'s graffiti with that of the first NFT ever sold - Quantum. In a way, we\'re peeling off the old, existing state of NFTs!',
+    trivia: 'There once was a graffiti war between two of the best - Banksy and King Robbo. While the war ended on a tragic note, with Robbo\'s death, one of the famous places where they re-painted each other\'s artwork is this tunnel in Camden. One of Banksy\'s early works was a witty reply - a painter peeling off Robbo\'s graffiti. We used this same image, but replaced Robbo\'s graffiti with that of the first NFT ever sold - Quantum. In a way, we\'re peeling off the old, existing state of NFTs!',
   },,
   {
     key: '8',
