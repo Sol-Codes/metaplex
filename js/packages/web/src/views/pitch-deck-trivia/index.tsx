@@ -24,7 +24,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data:any[] = [
   {
     key: '1',
     name: 'Opening Slide',
@@ -81,7 +81,7 @@ const data = [
     reference: 'The Matrix (somewhat.)',
     trivia: 'Since we\'re moving away from static images/videos, to code for NFTs, we wanted to encompass the idea with something native to computer code - a glitch! Unfortunately, the entire team agreed that the Matrix glitch effect was far too overused, so we instead ended up creating our own Glitch effect!',
   },
-]!;
+];
 
 export const PitchDeckTriviaView = () => {
   return (
